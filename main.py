@@ -1,25 +1,14 @@
 import logging
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
 import uvicorn
+
+from models import Numbers, Result
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
 app = FastAPI(title="Calculator API")
-
-
-class Numbers(BaseModel):
-    a: float
-    b: float
-
-
-class Result(BaseModel):
-    a: float
-    b: float
-    operation: str
-    result: float
 
 
 @app.post("/add", response_model=Result)
