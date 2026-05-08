@@ -34,7 +34,15 @@ The server runs on **http://localhost:8787**.
 
 ## Endpoints
 
-All endpoints accept `POST` requests with a JSON body `{ "a": <number>, "b": <number> }`.
+### Health Check
+
+| Endpoint    | Method | Description          | Example Response      |
+|-------------|--------|----------------------|-----------------------|
+| GET /health | GET    | Service health check | `{"status": "ok"}`   |
+
+### Calculator
+
+All calculator endpoints accept `POST` requests with a JSON body `{ "a": <number>, "b": <number> }`.
 
 | Endpoint      | Operation      | Example Request          | Example Response                                          |
 |---------------|----------------|--------------------------|-----------------------------------------------------------|
