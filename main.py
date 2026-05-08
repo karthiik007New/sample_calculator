@@ -22,6 +22,11 @@ class Result(BaseModel):
     result: float
 
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
 @app.post("/add", response_model=Result)
 def add(body: Numbers):
     logger.info("add: %s + %s", body.a, body.b)
