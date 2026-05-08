@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
@@ -23,7 +24,8 @@ class Result(BaseModel):
 
 
 @app.get("/health")
-def health():
+async def health():
+    await asyncio.sleep(10)
     return {"status": "ok"}
 
 
